@@ -24,67 +24,68 @@ function generatePassword() {
 
     questionNum = window.confirm("Do you want to include any numbers? \n Ok for yes, Cancel for no");
     console.log(questionNum); // Yes = true, No = false
-    
-    if (!questionUpperCase && !questionUpperCase && !questionSpecialCharacters && !questionSpecialCharacters){
-    // ⬇ if no selections are made
-    alert("Minimum requirements not met: \nYou need have select at least one criteria");
-    generatePassword();}
-  
+      
   // ⬇ if all 4 choices are selected yes
-    else if (questionUpperCase  && questionLowerCase && questionNum && questionSpecialCharacters ) {
-      userChoice = alphaUpper.concat(alphaLower,num,specialCharacters);
+    if (questionUpperCase  && questionLowerCase && questionNum && questionSpecialCharacters ) {
+      userChoice = alphaUpper + alphaLower +num +specialCharacters;
     
-    //⬇ List all possibilities if user doesn't want upper case
-    }else if (!questionUpperCase) { 
-      
-        // if statement is if all the other options are yes
-        if (questionLowerCase && questionSpecialCharacters && questionNum){
-          userChoice = alphaLower.concat(specialCharacters,num);
-          
-        } // ⬇  lower case yes, special characters yes, numbers no
-          else if (questionLowerCase && questionSpecialCharacters && !questionNum){
-          userChoice = alphaLower.concat(specialCharacters);
-          
-        } // ⬇ lower case yes, special characters no, number yes
-          else if(questionLowerCase && !questionSpecialCharacters && questionNum){
-          userChoice = alphaLower.concat(num);
-          
-        } // ⬇ lower case no, special characters yes, numbers yes
-          else if(!questionLowerCase && questionSpecialCharacters && questionNum){
-          userChoice = specialCharacters.concat(num);
+    // ⬇ if 3 choices are selected yes
+    } else if(questionUpperCase && questionLowerCase && questionNum){
+      userChoice = alphaUpper + alphaLower + num;
 
-        }
-          // ⬇ lower case no, special characters no, numbers yes
-          else if (!questionLowerCase && !questionSpecialCharacters && questionNum){
-          userChoice = num;
-          
-        } // ⬇ lower case no, special characters yes, numbers no
-          else {
-          userChoice = specialCharacters;};
-      
-       //⬇ options if lower case is no
-    }else if (!questionLowerCase){
-      // ⬇ if upper yes, special characters yes, number yes
-      if (questionUpperCase && questionSpecialCharacters && questionNum){
-        userChoice = alphaUpper.concat(specialCharacters,num);
-      } // ⬇ if upper yes, special characters no, number yes 
-      else if (questionUpperCase && !questionSpecialCharacters && questionNum){
-        userChoice = alphaUpper.concat(num);
-      } // ⬇ if upper yes, special characters no, number no
-      else {
-        userChoice = alphaUpper;
-      };
-      // ⬇ if no special characters
-    } else if (!questionSpecialCharacters){
-      // yes to upper case, lower case and numbers 
-      if (questionUpperCase && questionLowerCase && questionNum){
-        userChoice = alphaUpper.concat(alphaLower, num);
-      } // yes to upper case,  yes to lower, no to numbers
-      else if (questionUpperCase && questionLowerCase && !questionNum){
-        userChoice = alphaUpper.concat(alphaLower);
-      } 
+    } else if(questionUpperCase && questionLowerCase && questionSpecialCharacters){
+      userChoice = alphaUpper + alphaLower + specialCharacters;
+    
+    } else if(questionUpperCase && questionNum && questionSpecialCharacters){
+      userChoice = alphaUpper + num + specialCharacters;
+
+    } else if(questionLowerCase && questionNum && questionSpecialCharacters){
+      userChoice = alphaLower + num + specialCharacters;
+
+    // ⬇ if all 2 choices are selected yes
+    } else if(questionUpperCase && questionLowerCase){
+      userChoice = alphaUpper + alphaLower;
+
+    } else if(questionUpperCase && questionNum){
+      userChoice = alphaUpper + num;
+
+    } else if(questionUpperCase && questionSpecialCharacters){
+      userChoice = alphaUpper + specialCharacters;
+
+    } else if(questionLowerCase && questionNum){
+      userChoice = alphaLower + num;
+    
+    } else if(questionLowerCase && questionSpecialCharacters){
+      userChoice = alphaLower + specialCharacters;
+
+    } else if(questionNum && questionSpecialCharacters){
+      userChoice = num + specialCharacters;
+
+    // ⬇ if all 1 choice is selected yes 
+    } else if(questionUpperCase){
+      userChoice = alphaUpper;
+
+    } else if(questionLowerCase){
+      userChoice = alphaLower;
+
+    } else if(questionNum){
+      userChoice = num;
+
+    }else if (specialCharacters){
+      userChoice = specialCharacters;
     }
+
+    else if (!questionUpperCase && !questionUpperCase && !questionSpecialCharacters && !questionSpecialCharacters){
+      // ⬇ if no selections are made
+      alert("Minimum requirements not met: \nYou need have select at least one criteria");
+    }
+  };
+
   
+  console.log(userChoice);
+
+
+};
 // Get references to the #generate element in HTML
 var generateBtn = document.querySelector("#generate");
 
