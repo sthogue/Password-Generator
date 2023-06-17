@@ -1,7 +1,7 @@
 // Assignment code here
 var questionPasswordLength;
 var questionNum;
-var alphaUpper = "ABCDEFGHIJKLMONOPQRSTUVWXYZ";
+var alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var alphaLower = "abcdefghijklmnopqrstuvwxyz";
 var specialCharacters = "\"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var num =  "0123456789"
@@ -79,12 +79,16 @@ function generatePassword() {
       // ⬇ if no selections are made
       alert("Minimum requirements not met: \nYou need have select at least one criteria");
     }
-  };
+    console.log(userChoice);
 
+    for (var i = 0; i < questionPasswordLength.length; i++) {
+      var choosePassword = Math.floor(Math.random() * userChoice.questionPasswordLength);
+      choosePassword += userChoice.substring(choosePassword, choosePassword +1);
+      console.log(choosePassword);
   
-  console.log(userChoice);
-
-
+     }
+     return choosePassword;
+  };  
 };
 // Get references to the #generate element in HTML
 var generateBtn = document.querySelector("#generate");
