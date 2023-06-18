@@ -1,4 +1,3 @@
-// Assignment code here
 var questionPasswordLength;
 var questionNum;
 var alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -13,25 +12,26 @@ function generatePassword() {
   console.log(questionPasswordLength);
 
   // worked with tutor to incorporate the isNaN function 
+  // if user entry is not an number, prompt will return null
   if(isNaN(questionPasswordLength)) {
     alert("Please choose a number");
-    return null
+    return null;
   }
   if (questionPasswordLength < 8 || questionPasswordLength > 128) {
     alert("Please choose a range from 8 to 128 characters");
     return null;
   } else {
     questionUpperCase = window.confirm("Do you want any uppercase letters? \nOk for yes, Cancel for no");
-    console.log(questionUpperCase); // Yes = true, No = false
+    //Yes = true, No = false
     
     questionLowerCase = window.confirm("Do you want any lowercase letters? \nOk for yes, Cancel for no");
-    console.log(questionLowerCase); // Yes = true, No = false
+    // Yes = true, No = false
 
     questionSpecialCharacters = window.confirm("Do you want any special characters in your password? \n Special characters include \"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~");
-    console.log(questionSpecialCharacters); // Yes = true, No = false
+    // Yes = true, No = false
 
     questionNum = window.confirm("Do you want to include any numbers? \n Ok for yes, Cancel for no");
-    console.log(questionNum); // Yes = true, No = false
+    // Yes = true, No = false
       
   // ⬇ if all 4 choices are selected yes
     if (questionUpperCase  && questionLowerCase && questionNum && questionSpecialCharacters ) {
@@ -69,7 +69,7 @@ function generatePassword() {
     } else if(questionNum && questionSpecialCharacters){
       userChoice = num + specialCharacters;
 
-    // ⬇ if all 1 choice is selected yes 
+    // ⬇ if  1 choice is selected yes 
     } else if(questionUpperCase){
       userChoice = alphaUpper;
 
@@ -79,7 +79,7 @@ function generatePassword() {
     } else if(questionNum){
       userChoice = num;
 
-    }else if (specialCharacters){
+    } else if (specialCharacters){
       userChoice = specialCharacters;
     }
 
@@ -91,32 +91,14 @@ function generatePassword() {
     
 
     // generates final concat password based off criteria
-    for (var i = 0; i < questionPasswordLength; i++) {
-      //var passwordPlaceholder = Math.floor(Math.random() * userChoice.length);
-      //finalPassword += userChoice[passwordPlaceholder];
-      //console.log(finalPassword);
-
-      // select category based off user choice
-      // select random character based off user choice
-      // add random character to final password
-      // repeat until character length requirement is fulfilled
-      var passwordPlaceholder = "";
-      if(questionUpperCase){
-          passwordPlaceholder = alphaUpper[Math.floor(Math.random() * alphaUpper.length)];
-          finalPassword += passwordPlaceholder;}
-      if(questionLowerCase){
-          passwordPlaceholder += alphaLower[Math.floor(Math.random() * alphaLower.length)];
-          finalPassword += passwordPlaceholder;}
-      if(questionNum){
-          passwordPlaceholder += num[Math.floor(Math.random() * num.length)];
-          finalPassword += passwordPlaceholder;}
-      if(questionUpperCase){
-          passwordPlaceholder += specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-          finalPassword += passwordPlaceholder;}
-        }
+    // received help help from tutor center and ASK BCS for this portion
+    for (var i = 0; i < questionPasswordLength-1; i++) {
+      var passwordPlaceholder = Math.floor(Math.random() * userChoice.length);
+      finalPassword += userChoice[passwordPlaceholder];
+      console.log(finalPassword);
+      }
     
-  
-    }; 
+  }; 
   return finalPassword;
 };
 // Get references to the #generate element in HTML
