@@ -5,11 +5,10 @@ var alphaLower = "abcdefghijklmnopqrstuvwxyz";
 var specialCharacters = "\"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var num =  "0123456789"
 var userChoice;
-var finalPassword = "";
+
 
 function generatePassword() {
   questionPasswordLength = parseInt(prompt("Choose your password length. \nAny number between 8 and 128 "));
-  console.log(questionPasswordLength);
 
   // worked with tutor to incorporate the isNaN function 
   // if user entry is not an number, prompt will return null
@@ -87,15 +86,14 @@ function generatePassword() {
       // ⬇ if no selections are made
       alert("Minimum requirements not met: \nYou need have select at least one criteria");
     }
-    console.log(userChoice);
     
+    var finalPassword = "";
 
     // generates final concat password based off criteria
     // received help help from tutor center and ASK BCS for this portion
-    for (var i = 0; i < questionPasswordLength-1; i++) {
+    for (var i = 0; i < questionPasswordLength; i++) {
       var passwordPlaceholder = Math.floor(Math.random() * userChoice.length);
       finalPassword += userChoice[passwordPlaceholder];
-      console.log(finalPassword);
       }
     
   }; 
