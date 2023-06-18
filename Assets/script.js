@@ -6,7 +6,7 @@ var alphaLower = "abcdefghijklmnopqrstuvwxyz";
 var specialCharacters = "\"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var num =  "0123456789"
 var userChoice;
-var finalPassword = ""; 
+var finalPassword = "";
 
 function generatePassword() {
   questionPasswordLength = parseInt(prompt("Choose your password length. \nAny number between 8 and 128 "));
@@ -92,12 +92,31 @@ function generatePassword() {
 
     // generates final concat password based off criteria
     for (var i = 0; i < questionPasswordLength; i++) {
-      var passwordPlaceholder = Math.floor(Math.random() * userChoice.length);
-      finalPassword += userChoice[passwordPlaceholder];
-      console.log(finalPassword);
+      //var passwordPlaceholder = Math.floor(Math.random() * userChoice.length);
+      //finalPassword += userChoice[passwordPlaceholder];
+      //console.log(finalPassword);
+
+      // select category based off user choice
+      // select random character based off user choice
+      // add random character to final password
+      // repeat until character length requirement is fulfilled
+      var passwordPlaceholder = "";
+      if(questionUpperCase){
+          passwordPlaceholder = alphaUpper[Math.floor(Math.random() * alphaUpper.length)];
+          finalPassword += passwordPlaceholder;}
+      if(questionLowerCase){
+          passwordPlaceholder += alphaLower[Math.floor(Math.random() * alphaLower.length)];
+          finalPassword += passwordPlaceholder;}
+      if(questionNum){
+          passwordPlaceholder += num[Math.floor(Math.random() * num.length)];
+          finalPassword += passwordPlaceholder;}
+      if(questionUpperCase){
+          passwordPlaceholder += specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+          finalPassword += passwordPlaceholder;}
+        }
+    
   
-    };
-  };  
+    }; 
   return finalPassword;
 };
 // Get references to the #generate element in HTML
