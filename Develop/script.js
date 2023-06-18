@@ -6,12 +6,20 @@ var alphaLower = "abcdefghijklmnopqrstuvwxyz";
 var specialCharacters = "\"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var num =  "0123456789"
 var userChoice;
+var finalPassword = ""; 
 
 function generatePassword() {
-  questionPasswordLength = window.prompt("Choose your password length. \nAny number between 8 and 128 ");
+  questionPasswordLength = parseInt(prompt("Choose your password length. \nAny number between 8 and 128 "));
   console.log(questionPasswordLength);
+
+  // worked with tutor to incorporate the isNaN function 
+  if(isNaN(questionPasswordLength)) {
+    alert("Please choose a number");
+    return null
+  }
   if (questionPasswordLength < 8 || questionPasswordLength > 128) {
-    alert("Please choose a range from 8 to 128 characters")
+    alert("Please choose a range from 8 to 128 characters");
+    return null;
   } else {
     questionUpperCase = window.confirm("Do you want any uppercase letters? \nOk for yes, Cancel for no");
     console.log(questionUpperCase); // Yes = true, No = false
@@ -80,15 +88,17 @@ function generatePassword() {
       alert("Minimum requirements not met: \nYou need have select at least one criteria");
     }
     console.log(userChoice);
+    
 
-    for (var i = 0; i < questionPasswordLength.length; i++) {
-      var choosePassword = Math.floor(Math.random() * userChoice.questionPasswordLength);
-      choosePassword += userChoice.substring(choosePassword, choosePassword +1);
-      console.log(choosePassword);
+    // generates final concat password based off criteria
+    for (var i = 0; i < questionPasswordLength; i++) {
+      var passwordPlaceholder = Math.floor(Math.random() * userChoice.length);
+      finalPassword += userChoice[passwordPlaceholder];
+      console.log(finalPassword);
   
-     }
-     return choosePassword;
+    };
   };  
+  return finalPassword;
 };
 // Get references to the #generate element in HTML
 var generateBtn = document.querySelector("#generate");
