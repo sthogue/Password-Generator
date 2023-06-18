@@ -14,10 +14,18 @@ Criteria:
 
 After the user selects their password criteria the code will randomly select characters to generate the password and display it on the webpage. 
 
+# Screenshot and link
+
+## Screenshot 
+![screenshot of application](./Assets/image/screenshot%20of%20application.PNG)
+
+## Link
+ [Click me](https://sthogue.github.io/Password-Generator/)
+
 # Credit
 
 HTML and CSS code was already provide by the instructional team via the GitHub "import repository function" (git hub user "Xandromus" original code [https://github.com/coding-boot-camp/friendly-parakeet])
 
 JavaScript code was created by Stephen Hogue with some help from the edX tutor center. Areas received help with was the parseInt function on line 12 and the isNaN function on lines 16 - 18.
 
-Technologies used HTML, CSS and JavaScript
+Technologies used HTML, CSS, and JavaScript
