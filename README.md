@@ -3,14 +3,14 @@ Password generator using JavaScript prompts.
 
 Users will first click on the "Generate Password" button and JS prompts will ask the user for their desired password criteria.
 Criteria:
-    1. How long should the password be? Between 8 and 128 characters
-        a. If Password length is < 8 or > 128 the user will receive an alert that their choice is invalid
-    2. What character types they want to use. The user can select from:
-        a. Upper case letters
-        b. Lower case letters
-        c. Special characters
-        d. Numbers
-    3. If they user doesn't select any of the 4 options, the user will be alerted to select one character type criteria
+1. How long should the password be? Between 8 and 128 characters
+      - If Password length is < 8 or > 128 the user will receive an alert that their choice is invalid
+2. What character types they want to use. The user can select from:
+    - Upper case letters
+    - Lower case letters
+    - Special characters
+    - Numbers
+3. If they user doesn't select any of the 4 options, the user will be alerted to select one character type criteria
 
 After the user selects their password criteria the code will randomly select characters to generate the password and display it on the webpage. 
 
