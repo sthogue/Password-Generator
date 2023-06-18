@@ -16,7 +16,7 @@ After the user selects their password criteria the code will randomly select cha
 
 # Credit
 
-HTML and CSS code was already provide by the instructional team
+HTML and CSS code was already provide by the instructional team via the GitHub "import repository function" (git hub user "Xandromus" original code [https://github.com/coding-boot-camp/friendly-parakeet])
 
 JavaScript code was created by Stephen Hogue with some help from the edX tutor center. Areas received help with was the parseInt function on line 12 and the isNaN function on lines 16 - 18.
 
